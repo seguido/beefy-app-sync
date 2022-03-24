@@ -2,10 +2,13 @@
   "name": "beefy-app-sync",
   "version": "1.0.0",
   "description": "Beefy app asset/config/addressbook sync action",
-  "main": "index.js",
+  "main": "src/action.js",
   "repository": "git@github.com:seguido/beefy-app-sync.git",
   "author": "chebiN <17909998+seguido@users.noreply.github.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "ncc build src/action.js --license LICENSE"
+  },
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",

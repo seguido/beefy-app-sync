@@ -36,7 +36,7 @@ async function run() {
   console.log(modified);
   if (modified.length > 0) {
     console.log('Modified files, commiting and syncing');
-    const branch = `as/${commit}`;
+    const branch = `autosync/${commit}`;
     shell.exec('git add .');
     shell.exec(`git checkout -b ${branch}`);
     shell.exec(`git config user.name "${GITHUB_USER}"`);
