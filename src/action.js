@@ -16,6 +16,7 @@ async function run() {
   shell.cd('..');
   shell.exec('mkdir repos');
   shell.cd('./repos');
+
   //Clone
   shell.exec('git clone https://github.com/beefyfinance/beefy-app');
   shell.cd('./beefy-app');
@@ -24,6 +25,7 @@ async function run() {
   shell.exec(`git clone https://${GITHUB_TOKEN}@github.com/beefyfinance/beefy-v2`);
   shell.cd('./beefy-v2');
   shell.exec('yarn install');
+
   //Sync
   shell.exec('yarn sync');
 
@@ -42,11 +44,15 @@ async function run() {
     shell.exec(`git config user.name "${GITHUB_USER}"`);
     shell.exec(`git config user.email "${GITHUB_EMAIL}"`);
     shell.exec(`git commit -m 'sync'`);
+
+    //Check commited files after formatting
     const diffOut = shell.exec(`git diff --name-only HEAD HEAD~1`);
     const commitedFileCount = diffOut.split('/n').filter(line => line.includes('src/') || line.includes('package.json')).length;
     if (commitedFileCount == 0) {
       return console.log('No changes after commit formatting');
     }
+    
+    //Publish changes
     shell.exec('git push');
     shell.exec(`git push --set-upstream origin ${branch}`);
   } else {
