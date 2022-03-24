@@ -1,0 +1,18 @@
+name: 'Sync CI'
+description: 'Sync v1 vault/assets onto v2 Beefy app'
+author: 'chebiN'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'Github token'
+    required: true
+  GITHUB_USER:
+    description: 'Username to commit'
+    required: true
+  GITHUB_EMAIL:
+    description: 'Email to be used on commit'
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

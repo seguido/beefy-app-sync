@@ -1,0 +1,15 @@
+{
+  "name": "beefy-app-sync",
+  "version": "1.0.0",
+  "description": "Beefy app asset/config/addressbook sync action",
+  "main": "index.js",
+  "repository": "git@github.com:seguido/beefy-app-sync.git",
+  "author": "chebiN <17909998+seguido@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "@vercel/ncc": "^0.33.3",
+    "shelljs": "^0.8.5"
+  }
+}
